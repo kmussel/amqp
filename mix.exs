@@ -1,7 +1,7 @@
 defmodule AMQP.Mixfile do
   use Mix.Project
 
-  @version "1.0.3"
+  @version "1.0.4"
 
   def project do
     [app: :amqp,
@@ -27,16 +27,16 @@ defmodule AMQP.Mixfile do
 
   defp deps do
     [
-      {:amqp_client, "~> 3.7.3"},
-      {:rabbit_common, "~> 3.7.3"},
+      {:amqp_client, "~> 3.7.8", override: true},
+      {:rabbit_common, "~> 3.7.8", override: true},
+      {:ranch, "~> 1.6.2", override: true},
+      {:ranch_proxy_protocol, "~> 2.1.1", override: true},
+      {:lager, "~> 3.6.6", override: true},
 
       # We have an issue on rebar3 dependencies.
       # https://github.com/pma/amqp/issues/78
       {:goldrush, "~> 0.1.0"},
       {:jsx, "~> 2.8"},
-      {:lager, "~> 3.5"},
-      {:ranch, "~> 1.4"},
-      {:ranch_proxy_protocol, "~> 1.4"},
       {:recon, "~> 2.3.2"},
 
       {:earmark, "~> 1.0", only: :docs},
